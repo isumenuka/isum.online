@@ -17,37 +17,37 @@ export function Footer() {
   const socialLinks = [
     {
       icon: <Github size={20} />,
-      href: "https://github.com",
+      href: "https://github.com/isumenuka",
       label: "GitHub",
       color: "hover:text-[#2ea44f]"
     },
     {
       icon: <Youtube size={20} />,
-      href: "https://youtube.com",
+      href: "https://www.youtube.com/@ezsummextra",
       label: "YouTube",
       color: "hover:text-[#ff0000]"
     },
     {
       icon: <Twitter size={20} />,
-      href: "https://twitter.com",
+      href: "https://x.com/ezsumm",
       label: "Twitter",
       color: "hover:text-[#1DA1F2]"
     },
     {
       icon: <Facebook size={20} />,
-      href: "https://facebook.com",
+      href: "https://www.facebook.com/ezsumm",
       label: "Facebook",
       color: "hover:text-[#4267B2]"
     },
     {
       icon: <Instagram size={20} />,
-      href: "https://instagram.com",
+      href: "https://www.instagram.com/ezsumm/",
       label: "Instagram",
       color: "hover:text-[#E4405F]"
     },
     {
       icon: <Linkedin size={20} />,
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/isuma/",
       label: "LinkedIn",
       color: "hover:text-[#0077b5]"
     }
@@ -66,16 +66,16 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-4 max-w-md">
             <h3 className="text-white text-xl font-semibold mb-4 relative inline-block">
-              EZ Sum
+              ezsumm (isumenuka)
               <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-gradient-to-r from-purple-500 to-transparent"></span>
             </h3>
             <p className="text-white/70 text-sm leading-relaxed">
-              Transforming ideas into exceptional digital experiences. We create innovative solutions that drive success.
+            Let's Dream Out Of The Box...
             </p>
             <div className="flex items-center gap-2 text-white/70">
               <Mail size={16} />
               <a href="mailto:contact@ezsum.com" className="text-sm hover:text-white transition-colors">
-                contact@ezsum.com
+                isumenuka@gmail.com
               </a>
             </div>
           </div>
