@@ -13,7 +13,7 @@ export function Header({ onRefresh, lastSynced }: HeaderProps) {
         <div className="flex items-center justify-between">
           <div className="w-24">
             <a
-              href="https://github.com"
+              href="https://github.com/isumenuka/isum.online"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/80 hover:text-white transition-all duration-300 hover:scale-110"
