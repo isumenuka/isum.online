@@ -1,0 +1,32 @@
+@layer components {
+  .loader-bar {
+    @apply h-1 bg-white/10 rounded-full overflow-hidden;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+
+  .loader-progress {
+    @apply h-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500;
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+  }
+
+  .loader-container {
+    animation: fadeInUp 0.5s ease-out;
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

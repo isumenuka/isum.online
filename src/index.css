@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --grid-size: 45px;
+    --line-color: rgba(255, 255, 255, 0.15);
+    --cursor-color: #ff0000;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+  
+  body {
+    @apply antialiased min-h-screen bg-black;
+    cursor: none !important;
+  }
+
+  /* Force cursor to be hidden everywhere */
+  * {
+    cursor: none !important;
+  }
+
+  body::before {
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: 
+      linear-gradient(90deg, var(--line-color) 1px, transparent 1px var(--grid-size)) 50% 50% / var(--grid-size) var(--grid-size),
+      linear-gradient(var(--line-color) 1px, transparent 1px var(--grid-size)) 50% 50% / var(--grid-size) var(--grid-size);
+    mask: linear-gradient(-25deg, transparent 30%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  @keyframes shimmerReveal {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(200%) rotate(45deg); }
+  }
+
+  @keyframes reveal {
+    0% { 
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes marqueeLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marqueeRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes cursorPulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 
+        0 0 10px var(--cursor-color),
+        0 0 20px var(--cursor-color),
+        0 0 30px var(--cursor-color);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+      box-shadow: 
+        0 0 15px var(--cursor-color),
+        0 0 30px var(--cursor-color),
+        0 0 45px var(--cursor-color);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      box-shadow: 
+        0 0 10px var(--cursor-color),
+        0 0 20px var(--cursor-color),
+        0 0 30px var(--cursor-color);
+    }
+  }
+
+  @keyframes ringPulse {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+
+  @keyframes ringHover {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.5);
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  .glass-header {
+    @apply fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-footer {
+    @apply fixed bottom-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl border-t border-white/10;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 shadow-xl;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    @apply bg-white/15 border-white/30;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(255, 255, 255, 0.1),
+                0 8px 10px -6px rgba(255, 255, 255, 0.1);
+  }
+
+  .marquee-row {
+    @apply overflow-hidden whitespace-nowrap py-4;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .marquee-track {
+    @apply inline-flex;
+    width: fit-content;
+  }
+
+  .marquee-content {
+    @apply inline-flex;
+    width: fit-content;
+  }
+
+  .marquee-left .marquee-track {
+    animation: marqueeLeft 80s linear infinite;
+  }
+
+  .marquee-right .marquee-track {
+    animation: marqueeRight 80s linear infinite;
+  }
+
+  .marquee-left .marquee-track:hover,
+  .marquee-right .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .custom-cursor {
+    @apply fixed w-8 h-8 pointer-events-none z-[9999];
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: var(--cursor-color);
+    border-radius: 50%;
+    animation: cursorPulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    will-change: transform;
+    transition: transform 0.3s ease;
+  }
+
+  .cursor-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--cursor-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+    will-change: transform, opacity;
+  }
+
+  /* Hover state */
+  .custom-cursor.hovering .cursor-dot {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+
+  .custom-cursor.hovering .cursor-ring {
+    opacity: 1;
+    animation: ringHover 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  /* Click state */
+  .custom-cursor.clicking .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  .custom-cursor.clicking .cursor-ring {
+    opacity: 1;
+    animation: ringPulse 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+
+  .animate-shine {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+
+  .animate-shimmerReveal {
+    animation: shimmerReveal 1.2s ease-out forwards;
+  }
+
+  .animate-reveal {
+    animation: reveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-out forwards 0.3s;
+  }
+
+  .animate-slideDown {
+    animation: slideDown 0.6s ease-out forwards;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+}

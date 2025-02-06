@@ -1,0 +1,8 @@
+@layer components {
+  .custom-cursor {
+    @apply fixed w-8 h-8 pointer-events-none z-50;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+  }
+}

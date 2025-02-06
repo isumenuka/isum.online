@@ -1,0 +1,29 @@
+@layer components {
+  .marquee-row {
+    @apply overflow-hidden whitespace-nowrap py-4;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+
+  .marquee-track {
+    @apply inline-flex;
+    width: fit-content;
+  }
+
+  .marquee-content {
+    @apply inline-flex;
+    width: fit-content;
+  }
+
+  .marquee-left .marquee-track {
+    animation: marqueeLeft 80s linear infinite;
+  }
+
+  .marquee-right .marquee-track {
+    animation: marqueeRight 80s linear infinite;
+  }
+
+  .marquee-left .marquee-track:hover,
+  .marquee-right .marquee-track:hover {
+    animation-play-state: paused;
+  }
+}

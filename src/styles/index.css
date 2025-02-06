@@ -1,0 +1,11 @@
+/* Base styles */
+@import './base.css';
+
+/* Animations */
+@import './animations.css';
+
+/* Components */
+@import './components/glass.css';
+@import './components/marquee.css';
+@import './components/cursor.css';
+@import './components/loader.css';

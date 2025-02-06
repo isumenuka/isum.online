@@ -1,0 +1,27 @@
+@layer components {
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+
+  .glass-header {
+    @apply fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl border-b border-white/10;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-footer {
+    @apply fixed bottom-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl border-t border-white/10;
+    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 shadow-xl;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    @apply bg-white/15 border-white/30;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(255, 255, 255, 0.1),
+                0 8px 10px -6px rgba(255, 255, 255, 0.1);
+  }
+}
