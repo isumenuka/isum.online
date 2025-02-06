@@ -112,7 +112,7 @@ export function Footer() {
         <div className="pt-8 mt-8 border-t border-white/10">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-white/70 text-sm text-center sm:text-left">
-              © 2025 EZ Sum. All rights reserved.
+              © 2025 ezsumm. All rights reserved.
             </p>
             <div className="flex items-center gap-2 group">
               <span className="text-white/70 text-sm">Crafted with</span>
@@ -121,7 +121,7 @@ export function Footer() {
                 size={16} 
                 fill="currentColor"
               />
-              <span className="text-white/70 text-sm">by EZ Sum team</span>
+              <span className="text-white/70 text-sm">by ezsumm</span>
             </div>
           </div>
         </div>
