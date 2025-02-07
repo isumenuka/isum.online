@@ -1,11 +1,13 @@
-/* Base styles */
-@import './base.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Animations */
-@import './animations.css';
+/* Base styles */
+@import './base/reset.css';
+@import './base/animations.css';
 
 /* Components */
 @import './components/glass.css';
 @import './components/marquee.css';
 @import './components/cursor.css';
-@import './components/loader.css';
+@import './components/animations.css';

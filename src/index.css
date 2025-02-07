@@ -14,14 +14,28 @@
     height: 100%;
   }
   
-  body {
-    @apply antialiased min-h-screen bg-black;
-    cursor: none !important;
+  /* Only hide cursor on desktop */
+  @media (pointer: fine) {
+    body {
+      @apply antialiased min-h-screen bg-black;
+      cursor: none !important;
+    }
+
+    * {
+      cursor: none !important;
+    }
   }
 
-  /* Force cursor to be hidden everywhere */
-  * {
-    cursor: none !important;
+  /* Show default cursor on mobile/touch devices */
+  @media (pointer: coarse) {
+    body {
+      @apply antialiased min-h-screen bg-black;
+      cursor: auto !important;
+    }
+
+    * {
+      cursor: auto !important;
+    }
   }
 
   body::before {
@@ -215,6 +229,10 @@
   .custom-cursor {
     @apply fixed w-8 h-8 pointer-events-none z-[9999];
     transform: translate(-50%, -50%);
+    /* Hide custom cursor on mobile/touch devices */
+    @media (pointer: coarse) {
+      display: none !important;
+    }
   }
 
   .cursor-dot {
