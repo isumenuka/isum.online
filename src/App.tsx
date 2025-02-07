@@ -5,36 +5,39 @@ import { VideoGallery } from './components/VideoGallery';
 import { LoadingState } from './components/LoadingState';
 import { ErrorState } from './components/ErrorState';
 import { ThumbnailLightbox } from './components/ThumbnailLightbox';
+import { DesignToolsGrid } from './components/DesignToolsGrid';
+import { ContactForm } from './components/ContactForm';
 import { useMousePosition } from './hooks/useMousePosition';
 import { useVideos } from './hooks/useVideos';
-import { useImagesLoaded } from './hooks/useImagesLoaded';
 import { LightboxState } from './types';
 
 export default function App() {
   const mousePos = useMousePosition();
-  const { videos, loading, error, lastSynced, refresh } = useVideos();
-  const imagesLoaded = useImagesLoaded();
+  const { videos, loading, error } = useVideos();
   const [lightbox, setLightbox] = useState<LightboxState>({ isOpen: false, videoId: null });
 
-  if (loading || !imagesLoaded) return <LoadingState />;
+  if (loading) return <LoadingState />;
   if (error) return <ErrorState message={error} />;
 
   return (
-    <div className="min-h-screen flex flex-col overflow-hidden animate-fadeIn">
+    <div className="min-h-screen flex flex-col overflow-hidden">
       <div 
-        className={`custom-cursor ${mousePos.isHovering ? 'hovering' : ''} ${mousePos.isClicking ? 'clicking' : ''}`}
+        className="custom-cursor"
         style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-      >
-        <div className="cursor-dot"></div>
-        <div className="cursor-ring"></div>
-      </div>
+      />
 
-      <Header onRefresh={refresh} lastSynced={lastSynced} />
+      <Header />
       
       <VideoGallery 
         videos={videos}
         onVideoClick={(videoId) => setLightbox({ isOpen: true, videoId })}
       />
+
+      <div className="mt-4">
+        <DesignToolsGrid />
+      </div>
+
+      <ContactForm />
 
       <Footer />
 
