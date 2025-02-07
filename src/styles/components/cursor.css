@@ -1,8 +1,56 @@
 @layer components {
   .custom-cursor {
-    @apply fixed w-8 h-8 pointer-events-none z-50;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+    @apply fixed w-8 h-8 pointer-events-none z-[9999];
     transform: translate(-50%, -50%);
-    mix-blend-mode: difference;
+    /* Hide custom cursor on mobile/touch devices */
+    @media (pointer: coarse) {
+      display: none !important;
+    }
+  }
+
+  .cursor-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background-color: var(--cursor-color);
+    border-radius: 50%;
+    animation: cursorPulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    will-change: transform;
+    transition: transform 0.3s ease;
+  }
+
+  .cursor-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--cursor-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+    will-change: transform, opacity;
+  }
+
+  /* Hover state */
+  .custom-cursor.hovering .cursor-dot {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+
+  .custom-cursor.hovering .cursor-ring {
+    opacity: 1;
+    animation: ringHover 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  /* Click state */
+  .custom-cursor.clicking .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  .custom-cursor.clicking .cursor-ring {
+    opacity: 1;
+    animation: ringPulse 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 }

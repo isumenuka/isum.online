@@ -1,0 +1,51 @@
+@layer base {
+  :root {
+    --grid-size: 45px;
+    --line-color: rgba(255, 255, 255, 0.15);
+    --cursor-color: #ff0000;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+  
+  /* Only hide cursor on desktop */
+  @media (pointer: fine) {
+    body {
+      @apply antialiased min-h-screen bg-black;
+      cursor: none !important;
+    }
+
+    * {
+      cursor: none !important;
+    }
+  }
+
+  /* Show default cursor on mobile/touch devices */
+  @media (pointer: coarse) {
+    body {
+      @apply antialiased min-h-screen bg-black;
+      cursor: auto !important;
+    }
+
+    * {
+      cursor: auto !important;
+    }
+  }
+
+  body::before {
+    content: '';
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background: 
+      linear-gradient(90deg, var(--line-color) 1px, transparent 1px var(--grid-size)) 50% 50% / var(--grid-size) var(--grid-size),
+      linear-gradient(var(--line-color) 1px, transparent 1px var(--grid-size)) 50% 50% / var(--grid-size) var(--grid-size);
+    mask: linear-gradient(-25deg, transparent 30%, white);
+    top: 0;
+    transform-style: flat;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
