@@ -9,11 +9,8 @@ import {
   Heart,
   Mail
 } from 'lucide-react';
-import { useScrollToBottom } from '../hooks/useScrollToBottom';
 
 export function Footer() {
-  const isBottom = useScrollToBottom();
-  
   const socialLinks = [
     {
       icon: <Github size={20} />,
@@ -54,13 +51,7 @@ export function Footer() {
   ];
 
   return (
-    <footer 
-      className={`glass-footer py-8 md:py-12 transition-all duration-700 ${
-        isBottom 
-          ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-20 pointer-events-none'
-      }`}
-    >
+    <footer className="bg-black/40 backdrop-blur-xl border-t border-white/10 py-8 md:py-12">
       <div className="max-w-[2000px] mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start md:items-center justify-between">
           {/* Company Info */}
@@ -70,7 +61,7 @@ export function Footer() {
               <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-gradient-to-r from-purple-500 to-transparent"></span>
             </h3>
             <p className="text-white/70 text-sm leading-relaxed">
-            Let's Dream Out Of The Box...
+              Let's Dream Out Of The Box...
             </p>
             <div className="flex items-center gap-2 text-white/70">
               <Mail size={16} />
