@@ -6,13 +6,14 @@ import { LoadingState } from './components/LoadingState';
 import { ErrorState } from './components/ErrorState';
 import { ThumbnailLightbox } from './components/ThumbnailLightbox';
 import { DesignToolsGrid } from './components/DesignToolsGrid';
+import { FeedbackSection } from './components/FeedbackSection';
 import { ContactForm } from './components/ContactForm';
 import { useMousePosition } from './hooks/useMousePosition';
 import { useVideos } from './hooks/useVideos';
 import { LightboxState } from './types';
 
 export default function App() {
-  const mousePos = useMousePosition();
+  const { x, y, isClicking, isHovering } = useMousePosition();
   const { videos, loading, error } = useVideos();
   const [lightbox, setLightbox] = useState<LightboxState>({ isOpen: false, videoId: null });
 
@@ -22,9 +23,12 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
       <div 
-        className="custom-cursor"
-        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-      />
+        className={`custom-cursor ${isHovering ? 'hovering' : ''} ${isClicking ? 'clicking' : ''}`}
+        style={{ left: `${x}px`, top: `${y}px` }}
+      >
+        <div className="cursor-dot" />
+        <div className="cursor-ring" />
+      </div>
 
       <Header />
       
@@ -36,6 +40,8 @@ export default function App() {
       <div className="mt-4">
         <DesignToolsGrid />
       </div>
+
+      <FeedbackSection />
 
       <ContactForm />
 

@@ -21,7 +21,7 @@ export function VideoGallery({ videos, onVideoClick }: VideoGalleryProps) {
         <div key={rowIndex} className={`marquee-row ${rowIndex % 2 === 0 ? 'marquee-left' : 'marquee-right'}`}>
           <div className="marquee-track">
             <div className="marquee-content">
-              {Array(4).fill(row).flat().map((video, index) => (
+              {Array(2).fill(row).flat().map((video, index) => (
                 <VideoCard
                   key={`${video.id}-${index}`}
                   video={video}
@@ -30,7 +30,7 @@ export function VideoGallery({ videos, onVideoClick }: VideoGalleryProps) {
               ))}
             </div>
             <div className="marquee-content" aria-hidden="true">
-              {Array(4).fill(row).flat().map((video, index) => (
+              {Array(2).fill(row).flat().map((video, index) => (
                 <VideoCard
                   key={`${video.id}-${index}-duplicate`}
                   video={video}

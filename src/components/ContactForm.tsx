@@ -12,7 +12,6 @@ export function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Format the email body with proper line breaks
     const emailBody = `
 Name: ${formData.name}
 Email: ${formData.email}
@@ -21,10 +20,8 @@ Message:
 ${formData.message}
     `.trim();
 
-    // Create the mailto link with proper encoding
     const mailtoLink = `mailto:isumenuka@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
     
-    // Create and click a temporary link
     const link = document.createElement('a');
     link.href = mailtoLink;
     link.target = '_blank';
@@ -33,7 +30,6 @@ ${formData.message}
     link.click();
     document.body.removeChild(link);
 
-    // Optional: Reset form after submission
     setFormData({
       name: '',
       email: '',
@@ -51,21 +47,31 @@ ${formData.message}
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-      <div className="relative">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl blur-xl" />
-        
-        <div className="relative bg-black/20 backdrop-blur-lg rounded-2xl border border-white/10 p-6 sm:p-8 lg:p-10">
-          <div className="flex items-center gap-3 mb-8">
-            <Mail className="text-white/80 w-6 h-6" />
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">Get in Touch</h2>
-          </div>
+    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 mb-4">
+          Get in Touch
+        </h2>
+        <p className="text-white/70 text-lg">Let's create something amazing together</p>
+      </div>
 
+      {/* Main glass container */}
+      <div className="relative max-w-3xl mx-auto">
+        {/* Outer glow effect */}
+        <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 via-fuchsia-500/20 to-pink-500/20 rounded-3xl blur-2xl opacity-75" />
+        
+        {/* Glass container */}
+        <div className="relative backdrop-blur-xl rounded-2xl border border-white/10 p-8 sm:p-10"
+             style={{
+               background: 'linear-gradient(135deg, rgba(88, 28, 135, 0.1), rgba(236, 72, 153, 0.1))',
+               boxShadow: '0 8px 32px rgba(31, 41, 55, 0.2)'
+             }}>
+          
+          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
+              <div className="group">
+                <label htmlFor="name" className="block text-sm font-medium text-purple-300 mb-2 group-hover:text-pink-300 transition-colors duration-300">
                   Name
                 </label>
                 <input
@@ -75,12 +81,12 @@ ${formData.message}
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300 hover:border-purple-500/50"
                   placeholder="Your name"
                 />
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
+              <div className="group">
+                <label htmlFor="email" className="block text-sm font-medium text-purple-300 mb-2 group-hover:text-pink-300 transition-colors duration-300">
                   Email
                 </label>
                 <input
@@ -90,14 +96,14 @@ ${formData.message}
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300"
+                  className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300 hover:border-purple-500/50"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
 
-            <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-2">
+            <div className="group">
+              <label htmlFor="subject" className="block text-sm font-medium text-purple-300 mb-2 group-hover:text-pink-300 transition-colors duration-300">
                 Subject
               </label>
               <input
@@ -107,13 +113,13 @@ ${formData.message}
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300"
+                className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300 hover:border-purple-500/50"
                 placeholder="What's this about?"
               />
             </div>
 
-            <div>
-              <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
+            <div className="group">
+              <label htmlFor="message" className="block text-sm font-medium text-purple-300 mb-2 group-hover:text-pink-300 transition-colors duration-300">
                 Message
               </label>
               <textarea
@@ -123,7 +129,7 @@ ${formData.message}
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-2 bg-white/5 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300 resize-none"
+                className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300 hover:border-purple-500/50 resize-none"
                 placeholder="Your message here..."
               />
             </div>
@@ -131,9 +137,17 @@ ${formData.message}
             <div className="flex justify-end">
               <button
                 type="submit"
-                className="group relative px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg font-medium text-white hover:from-purple-600 hover:to-pink-600 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all duration-300"
+                className="group relative px-6 py-3 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500/50 overflow-hidden"
+                style={{
+                  background: 'linear-gradient(135deg, #9333EA, #EC4899)',
+                  boxShadow: '0 0 20px rgba(236, 72, 153, 0.5)'
+                }}
               >
-                <span className="flex items-center gap-2">
+                {/* Glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                
+                {/* Button content */}
+                <span className="relative flex items-center gap-2">
                   Send Message
                   <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>

@@ -17,10 +17,14 @@ export default defineConfig({
           icons: ['lucide-react']
         }
       }
-    }
+    },
+    // Add image optimization
+    assetsInlineLimit: 4096,
+    chunkSizeWarningLimit: 1000,
   },
   server: {
     headers: {
+      'Cache-Control': 'public, max-age=31536000',
       'X-Content-Type-Options': 'nosniff',
       'X-Frame-Options': 'DENY',
       'X-XSS-Protection': '1; mode=block',
