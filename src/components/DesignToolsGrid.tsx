@@ -1,39 +1,39 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
+
+const tools = [
+  {
+    name: 'Adobe Photoshop',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/2101px-Adobe_Photoshop_CC_icon.svg.png',
+    description: 'Professional photo editing and manipulation',
+    glowColor: 'from-blue-500/30 to-cyan-500/30'
+  },
+  {
+    name: 'Midjourney',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png',
+    description: 'AI-powered image generation',
+    glowColor: 'from-purple-500/30 to-pink-500/30'
+  },
+  {
+    name: 'Adobe Lightroom',
+    icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg/2101px-Adobe_Photoshop_Lightroom_CC_logo.svg.png',
+    description: 'Professional photo processing and organization',
+    glowColor: 'from-blue-600/30 to-sky-400/30'
+  },
+  {
+    name: 'flux',
+    icon: 'https://media.licdn.com/dms/image/v2/D4E0BAQGFQfb1fgg9Yg/company-logo_200_200/company-logo_200_200/0/1722515273647/bflml_logo?e=2147483647&v=beta&t=d3O2BlyuE40WNJ0JJ5KFRANuCXpH1ZE_hN7VmLfR7ik',
+    description: 'text-to-image models that use artificial intelligence (AI) to generate images from written descriptions',
+    glowColor: 'from-orange-500/30 to-yellow-500/30'
+  },
+  {
+    name: 'LoRA',
+    icon: 'https://github.com/ostris.png',
+    description: 'Low-Rank Adaptation for AI image generation',
+    glowColor: 'from-green-500/30 to-emerald-500/30'
+  }
+];
 
 export function DesignToolsGrid() {
-  const tools = [
-    {
-      name: 'Adobe Photoshop',
-      icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Adobe_Photoshop_CC_icon.svg/2101px-Adobe_Photoshop_CC_icon.svg.png',
-      description: 'Professional photo editing and manipulation',
-      glowColor: 'from-blue-500/30 to-cyan-500/30'
-    },
-    {
-      name: 'Midjourney',
-      icon: 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Midjourney_Emblem.png',
-      description: 'AI-powered image generation',
-      glowColor: 'from-purple-500/30 to-pink-500/30'
-    },
-    {
-      name: 'Adobe Lightroom',
-      icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Adobe_Photoshop_Lightroom_CC_logo.svg/2101px-Adobe_Photoshop_Lightroom_CC_logo.svg.png',
-      description: 'Professional photo processing and organization',
-      glowColor: 'from-blue-600/30 to-sky-400/30'
-    },
-    {
-      name: 'flux',
-      icon: 'https://media.licdn.com/dms/image/v2/D4E0BAQGFQfb1fgg9Yg/company-logo_200_200/company-logo_200_200/0/1722515273647/bflml_logo?e=2147483647&v=beta&t=d3O2BlyuE40WNJ0JJ5KFRANuCXpH1ZE_hN7VmLfR7ik',
-      description: 'text-to-image models that use artificial intelligence (AI) to generate images from written descriptions',
-      glowColor: 'from-orange-500/30 to-yellow-500/30'
-    },
-    {
-      name: 'LoRA',
-      icon: 'https://github.com/ostris.png',
-      description: 'Low-Rank Adaptation for AI image generation',
-      glowColor: 'from-green-500/30 to-emerald-500/30'
-    }
-  ];
-
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
       <h2 className="text-center text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-6 sm:mb-8 lg:mb-12">
@@ -63,6 +63,9 @@ export function DesignToolsGrid() {
                   src={tool.icon} 
                   alt={tool.name}
                   className="w-full h-full object-contain relative z-10 group-hover:animate-pulse"
+                  loading="lazy"
+                  decoding="async"
+                  fetchpriority="low"
                 />
               </div>
               <h3 className="text-white text-base sm:text-lg font-semibold mb-1 sm:mb-2 text-center group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 transition-all duration-300">

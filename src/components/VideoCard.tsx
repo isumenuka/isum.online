@@ -18,12 +18,14 @@ export function VideoCard({ video, onClick }: VideoCardProps) {
           <div className="absolute inset-[-100%] bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-45 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000" />
         </div>
         
-        {/* Thumbnail image */}
+        {/* Thumbnail image with lazy loading */}
         <img
           src={video.thumbnailUrl}
           alt={video.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
         />
         
         {/* Hover overlay gradient */}
