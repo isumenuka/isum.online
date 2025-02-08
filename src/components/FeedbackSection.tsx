@@ -48,7 +48,7 @@ const feedbacks: Feedback[] = [
   {
     id: 5,
     rating: 5,
-    comment: '',
+    comment: 'Isum is an amazing graphic designer! Creative, professional, and easy to work with. Loved the designs—highly recommend!',
     author: 'Teminas',
     date: '2025-02-05',
     youtubeHandle: '@Teminasglobal',
