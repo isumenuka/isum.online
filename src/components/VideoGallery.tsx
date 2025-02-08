@@ -8,7 +8,11 @@ interface VideoGalleryProps {
 }
 
 export function VideoGallery({ videos, onVideoClick }: VideoGalleryProps) {
-  const chunkedVideos = videos.reduce((acc, video, i) => {
+  // Take only the first 36 videos (6 rows × 6 videos per row)
+  const limitedVideos = videos.slice(0, 36);
+  
+  // Split videos into 6 rows
+  const chunkedVideos = limitedVideos.reduce((acc, video, i) => {
     const chunkIndex = Math.floor(i / 6);
     if (!acc[chunkIndex]) acc[chunkIndex] = [];
     acc[chunkIndex].push(video);
@@ -21,7 +25,7 @@ export function VideoGallery({ videos, onVideoClick }: VideoGalleryProps) {
         <div key={rowIndex} className={`marquee-row ${rowIndex % 2 === 0 ? 'marquee-left' : 'marquee-right'}`}>
           <div className="marquee-track">
             <div className="marquee-content">
-              {Array(2).fill(row).flat().map((video, index) => (
+              {Array(4).fill(row).flat().map((video, index) => (
                 <VideoCard
                   key={`${video.id}-${index}`}
                   video={video}
@@ -30,7 +34,7 @@ export function VideoGallery({ videos, onVideoClick }: VideoGalleryProps) {
               ))}
             </div>
             <div className="marquee-content" aria-hidden="true">
-              {Array(2).fill(row).flat().map((video, index) => (
+              {Array(4).fill(row).flat().map((video, index) => (
                 <VideoCard
                   key={`${video.id}-${index}-duplicate`}
                   video={video}

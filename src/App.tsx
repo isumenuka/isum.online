@@ -13,7 +13,7 @@ import { useVideos } from './hooks/useVideos';
 import { LightboxState } from './types';
 
 export default function App() {
-  const { x, y, isClicking, isHovering } = useMousePosition();
+  const mousePos = useMousePosition();
   const { videos, loading, error } = useVideos();
   const [lightbox, setLightbox] = useState<LightboxState>({ isOpen: false, videoId: null });
 
@@ -23,12 +23,9 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
       <div 
-        className={`custom-cursor ${isHovering ? 'hovering' : ''} ${isClicking ? 'clicking' : ''}`}
-        style={{ left: `${x}px`, top: `${y}px` }}
-      >
-        <div className="cursor-dot" />
-        <div className="cursor-ring" />
-      </div>
+        className="custom-cursor"
+        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
+      />
 
       <Header />
       
