@@ -56,8 +56,7 @@ const feedbacks: Feedback[] = [
 ];
 
 export function FeedbackSection() {
-  const [feedbacksWithProfiles, setFeedbacksWithProfiles] =
-    useState<Feedback[]>(feedbacks);
+  const [feedbacksWithProfiles, setFeedbacksWithProfiles] = useState<Feedback[]>(feedbacks);
 
   useEffect(() => {
     const fetchYouTubeProfiles = async () => {
@@ -65,9 +64,7 @@ export function FeedbackSection() {
         feedbacks.map(async (feedback) => {
           try {
             const response = await fetch(
-              `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&forHandle=${feedback.youtubeHandle.substring(
-                1
-              )}&key=${YOUTUBE_API_KEY}`
+              `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&forHandle=${feedback.youtubeHandle.substring(1)}&key=${YOUTUBE_API_KEY}`
             );
             const data = await response.json();
 
@@ -79,10 +76,7 @@ export function FeedbackSection() {
             }
             return feedback;
           } catch (error) {
-            console.error(
-              `Error fetching profile for ${feedback.youtubeHandle}:`,
-              error
-            );
+            console.error(`Error fetching profile for ${feedback.youtubeHandle}:`, error);
             return feedback;
           }
         })
@@ -95,11 +89,7 @@ export function FeedbackSection() {
   }, []);
 
   const handleCardClick = (youtubeHandle: string) => {
-    window.open(
-      `https://youtube.com/${youtubeHandle}`,
-      '_blank',
-      'noopener,noreferrer'
-    );
+    window.open(`https://youtube.com/${youtubeHandle}`, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -155,9 +145,7 @@ export function FeedbackSection() {
                     )}
                   </div>
                   <div>
-                    <h3 className="text-white font-medium">
-                      {feedback.author}
-                    </h3>
+                    <h3 className="text-white font-medium">{feedback.author}</h3>
                     <span className="text-sm text-purple-300 group-hover:text-pink-300 transition-colors duration-300">
                       {feedback.youtubeHandle}
                     </span>
