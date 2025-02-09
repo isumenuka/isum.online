@@ -32,9 +32,9 @@ const feedbacks: Feedback[] = [
   {
     id: 3,
     rating: 5,
-    comment: 'Ezsumm’s editing services were a game-changer for my growing YouTube channel. His work on my thumbnails made my channel look clean, organized, and more professional, which significantly improved its overall appeal. I highly recommend his expertise for anyone looking to elevate their content!',
+    comment: 'Isum’s editing services were a game-changer for my growing YouTube channel. His work on my thumbnails made my channel look clean, organized, and more professional, which significantly improved its overall appeal. I highly recommend his expertise for anyone looking to elevate their content!',
     author: 'PradMaz',
-    date: '2025-02-05',
+    date: '2025-02-09',
     youtubeHandle: '@pradmaz',
   },
   {
