@@ -14,28 +14,22 @@
     height: 100%;
   }
   
-  /* Only hide cursor on desktop */
+  /* Only hide cursor on desktop when custom cursor is enabled */
   @media (pointer: fine) {
-    body {
+    body.custom-cursor-enabled {
       @apply antialiased min-h-screen bg-black;
       cursor: none !important;
     }
 
-    * {
+    body.custom-cursor-enabled * {
       cursor: none !important;
     }
   }
 
-  /* Show default cursor on mobile/touch devices */
-  @media (pointer: coarse) {
-    body {
-      @apply antialiased min-h-screen bg-black;
-      cursor: auto !important;
-    }
-
-    * {
-      cursor: auto !important;
-    }
+  /* Default cursor styles */
+  body {
+    @apply antialiased min-h-screen bg-black;
+    cursor: auto;
   }
 
   body::before {

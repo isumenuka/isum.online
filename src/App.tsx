@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { VideoGallery } from './components/VideoGallery';
@@ -17,15 +17,29 @@ export default function App() {
   const { videos, loading, error } = useVideos();
   const [lightbox, setLightbox] = useState<LightboxState>({ isOpen: false, videoId: null });
 
+  // Enable custom cursor for desktop devices
+  useEffect(() => {
+    const isDesktop = window.matchMedia('(pointer: fine)').matches;
+    if (isDesktop) {
+      document.body.classList.add('custom-cursor-enabled');
+    }
+    return () => {
+      document.body.classList.remove('custom-cursor-enabled');
+    };
+  }, []);
+
   if (loading) return <LoadingState />;
   if (error) return <ErrorState message={error} />;
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
       <div 
-        className="custom-cursor"
+        className={`custom-cursor ${mousePos.isHovering ? 'hovering' : ''} ${mousePos.isClicking ? 'clicking' : ''}`}
         style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-      />
+      >
+        <div className="cursor-dot" />
+        <div className="cursor-ring" />
+      </div>
 
       <Header />
       
