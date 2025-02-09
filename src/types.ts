@@ -23,3 +23,13 @@ export interface LightboxState {
   isOpen: boolean;
   videoId: string | null;
 }
+
+export interface Feedback {
+  id: number;
+  rating: number;
+  comment: string;
+  author: string;
+  date: string;
+  youtubeHandle: string;
+  profileImage?: string;
+}

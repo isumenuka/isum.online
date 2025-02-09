@@ -8,6 +8,7 @@ import { ThumbnailLightbox } from './components/ThumbnailLightbox';
 import { DesignToolsGrid } from './components/DesignToolsGrid';
 import { FeedbackSection } from './components/FeedbackSection';
 import { ContactForm } from './components/ContactForm';
+import { AIProductsSection } from './components/AIProductsSection';
 import { useMousePosition } from './hooks/useMousePosition';
 import { useVideos } from './hooks/useVideos';
 import { LightboxState } from './types';
@@ -53,6 +54,8 @@ export default function App() {
       </div>
 
       <FeedbackSection />
+
+      <AIProductsSection />
 
       <ContactForm />
 

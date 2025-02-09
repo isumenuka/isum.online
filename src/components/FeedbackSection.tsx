@@ -1,59 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Star, MessageCircle, Youtube, ExternalLink } from 'lucide-react';
 import { YOUTUBE_API_KEY } from '../config';
-
-interface Feedback {
-  id: number;
-  rating: number;
-  comment: string;
-  author: string;
-  date: string;
-  youtubeHandle: string;
-  profileImage?: string;
-}
-
-const feedbacks: Feedback[] = [
-  {
-    id: 1,
-    rating: 5,
-    comment: '',
-    author: 'Yash and Hass',
-    date: '2025-02-01',
-    youtubeHandle: '@yashandhass',
-  },
-  {
-    id: 2,
-    rating: 5,
-    comment: '',
-    author: 'Hassa',
-    date: '2025-02-03',
-    youtubeHandle: '@gaminghassa',
-  },
-  {
-    id: 3,
-    rating: 5,
-    comment: 'Isum’s editing services were a game-changer for my growing YouTube channel. His work on my thumbnails made my channel look clean, organized, and more professional, which significantly improved its overall appeal. I highly recommend his expertise for anyone looking to elevate their content!',
-    author: 'PradMaz',
-    date: '2025-02-09',
-    youtubeHandle: '@pradmaz',
-  },
-  {
-    id: 4,
-    rating: 5,
-    comment: '',
-    author: 'Lucifer Streams',
-    date: '2025-02-05',
-    youtubeHandle: '@sllucifer69',
-  },
-  {
-    id: 5,
-    rating: 5,
-    comment: 'Isum is an amazing graphic designer! Creative, professional, and easy to work with. Loved the designs—highly recommend!',
-    author: 'Teminas',
-    date: '2025-02-05',
-    youtubeHandle: '@Teminasglobal',
-  },
-];
+import { feedbacks } from '../data/feedbacks';
+import type { Feedback } from '../types';
 
 export function FeedbackSection() {
   const [feedbacksWithProfiles, setFeedbacksWithProfiles] = useState<Feedback[]>(feedbacks);
@@ -163,7 +112,7 @@ export function FeedbackSection() {
                     />
                   ))}
                 </div>
-                <p className="text-white/90 mb-4 line-clamp-3 group-hover:text-white transition-colors duration-300">
+                <p className="text-white/90 mb-4 group-hover:text-white transition-colors duration-300">
                   {feedback.comment}
                 </p>
                 <div className="flex justify-end text-sm">
