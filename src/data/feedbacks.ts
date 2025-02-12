@@ -4,7 +4,7 @@ export const feedbacks: Feedback[] = [
   {
     id: 1,
     rating: 5,
-    comment: "",
+    comment: "isum has been really easy to work with. Since we have a different way of doing things, he adapted well and worked everything around for us. Less talk, more work, straight to the point. Highly recommend working with him",
     author: 'Yash and Hass',
     date: '2025-02-01',
     youtubeHandle: '@yashandhass',
