@@ -12,7 +12,7 @@ export const feedbacks: Feedback[] = [
   {
     id: 2,
     rating: 5,
-    comment: "isum has been really easy to work with. Since we have a different way of doing things, he adapted well and worked everything around for us. Less talk, more work, straight to the point. Highly recommend working with him",
+    comment: "Isum is easy to work with, adaptable, efficient, and direct. Highly recommended.",
     author: 'Hassa',
     date: '2025-02-12',
     youtubeHandle: '@gaminghassa',
