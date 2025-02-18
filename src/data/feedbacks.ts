@@ -28,7 +28,7 @@ export const feedbacks: Feedback[] = [
   {
     id: 4,
     rating: 5,
-    comment: "",
+    comment: "isum transformed my YouTube channel!  My thumbnails now get way more clicks, and my channel looks super professional. They nailed my style and were great with feedback.  Working with them saved me tons of time and stress. Highly recommend!",
     author: 'Lucifer Streams',
     date: '2025-02-05',
     youtubeHandle: '@sllucifer69',
