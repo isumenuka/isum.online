@@ -25,7 +25,7 @@ const aiProducts: AIProduct[] = [
     title: "Movie Cast Age Explorer",
     description: "Discover actor ages in movies",
     url: "https://movie-cast-age-explorer.isum.online/",
-    isWorking: false
+    isWorking: true
   },
   {
     title: "Trailer Analyser",
