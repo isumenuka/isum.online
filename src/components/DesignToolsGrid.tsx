@@ -22,7 +22,7 @@ export function DesignToolsGrid() {
     },
     {
       name: 'flux',
-      icon: 'https://media.licdn.com/dms/image/v2/D4E0BAQGFQfb1fgg9Yg/company-logo_200_200/company-logo_200_200/0/1722515273647/bflml_logo?e=2147483647&v=beta&t=d3O2BlyuE40WNJ0JJ5KFRANuCXpH1ZE_hN7VmLfR7ik',
+      icon: 'https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/flux.png',
       description: 'text-to-image models that use artificial intelligence (AI) to generate images from written descriptions',
       glowColor: 'from-orange-500/30 to-yellow-500/30'
     },
