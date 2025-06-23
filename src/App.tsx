@@ -67,10 +67,9 @@ export default function App() {
 
       <Header />
       
-      <VideoGallery
+      <VideoGallery 
         videos={videos}
         onVideoClick={(videoId) => setLightbox({ isOpen: true, videoId })}
-        selectedVideoId={lightbox.isOpen ? lightbox.videoId : null}
       />
 
       <div className="mt-4">

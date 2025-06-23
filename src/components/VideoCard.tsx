@@ -4,30 +4,10 @@ import { VideoItem } from '../types';
 interface VideoCardProps {
   video: VideoItem;
   onClick: () => void;
-  selected?: boolean;
 }
 
-export function VideoCard({ video, onClick, selected = false }: VideoCardProps) {
+export function VideoCard({ video, onClick }: VideoCardProps) {
   const cardRef = useRef<HTMLButtonElement>(null);
-
-  const createRipple = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const button = e.currentTarget;
-    const rect = button.getBoundingClientRect();
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
-    const circle = document.createElement('span');
-    circle.className = 'ripple';
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${e.clientX - rect.left - radius}px`;
-    circle.style.top = `${e.clientY - rect.top - radius}px`;
-    button.appendChild(circle);
-    circle.addEventListener('animationend', () => circle.remove());
-  };
-
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    createRipple(e);
-    onClick();
-  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
     const card = cardRef.current;
@@ -48,12 +28,12 @@ export function VideoCard({ video, onClick, selected = false }: VideoCardProps) 
   return (
     <button
       ref={cardRef}
-      onClick={handleClick}
+      onClick={onClick}
       onMouseMove={handleMouseMove}
       onMouseLeave={resetTilt}
       onMouseDown={() => cardRef.current?.classList.add('pressed')}
       onMouseUp={() => cardRef.current?.classList.remove('pressed')}
-      className={`tilt-card w-[300px] glass-card rounded-xl overflow-hidden group mx-2 transition-transform duration-500 ripple-container ${selected ? 'scale-125 z-10 glow-on-select' : ''}`}
+      className="tilt-card w-[300px] glass-card rounded-xl overflow-hidden group mx-2"
     >
       <div className="aspect-video overflow-hidden relative">
         {/* Shine effect overlay */}
