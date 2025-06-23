@@ -84,7 +84,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-white/70 hover:scale-110 ${social.color} transition-all duration-300 group`}
+                  className={`text-white/70 hover:scale-110 ${social.color} transition-transform duration-300 ease-out group`}
                   aria-label={social.label}
                 >
                   <div className="relative">

@@ -32,13 +32,13 @@ export function ThumbnailLightbox({ video, onClose }: ThumbnailLightboxProps) {
             href={video.videoUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 glass rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110"
+            className="p-2 glass rounded-full hover:bg-white/30 transition-transform duration-300 ease-out hover:scale-110"
           >
             <ExternalLink size={20} className="text-white" />
           </a>
           <button
             onClick={onClose}
-            className="p-2 glass rounded-full hover:bg-white/30 transition-all duration-300 hover:scale-110"
+            className="p-2 glass rounded-full hover:bg-white/30 transition-transform duration-300 ease-out hover:scale-110"
           >
             <X size={20} className="text-white" />
           </button>

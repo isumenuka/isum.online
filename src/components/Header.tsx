@@ -16,7 +16,7 @@ export function Header({ onRefresh, lastSynced }: HeaderProps) {
               href="https://github.com/isumenuka/isum.online"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/80 hover:text-white transition-all duration-300 hover:scale-110"
+              className="text-white/80 hover:text-white transition-transform duration-300 ease-out hover:scale-110"
             >
               <Github size={24} />
             </a>

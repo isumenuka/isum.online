@@ -58,10 +58,10 @@ export function FeedbackSection() {
             <button
               key={feedback.id}
               onClick={() => handleCardClick(feedback.youtubeHandle)}
-              className="group relative rounded-2xl transition-all duration-500 text-left cursor-pointer hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
+              className="group relative rounded-2xl transition-transform duration-500 ease-out text-left cursor-pointer hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500/50"
             >
               {/* Card glass effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 to-pink-900/10 rounded-2xl backdrop-blur-xl border border-white/10 transition-all duration-500 group-hover:border-purple-500/50" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 to-pink-900/10 rounded-2xl backdrop-blur-xl border border-white/10 transition-colors duration-500 ease-out group-hover:border-purple-500/50" />
 
               {/* Hover glow effect */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -85,7 +85,7 @@ export function FeedbackSection() {
                         <img
                           src={feedback.profileImage}
                           alt={feedback.author}
-                          className="w-12 h-12 rounded-full object-cover border-2 border-white/20 group-hover:border-purple-400/50 transition-all duration-500 relative z-10"
+                          className="w-12 h-12 rounded-full object-cover border-2 border-white/20 group-hover:border-purple-400/50 transition-colors duration-500 ease-out relative z-10"
                           loading="lazy"
                         />
                       </div>
