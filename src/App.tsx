@@ -9,6 +9,8 @@ import { DesignToolsGrid } from './components/DesignToolsGrid';
 import { FeedbackSection } from './components/FeedbackSection';
 import { ContactForm } from './components/ContactForm';
 import { AIProductsSection } from './components/AIProductsSection';
+import { ScrollProgress } from './components/ScrollProgress';
+import { ScrollToTopButton } from './components/ScrollToTopButton';
 import { useMousePosition } from './hooks/useMousePosition';
 import { useVideos } from './hooks/useVideos';
 import { LightboxState } from './types';
@@ -34,7 +36,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
-      <div 
+      <ScrollProgress />
+      <div
         className={`custom-cursor ${mousePos.isHovering ? 'hovering' : ''} ${mousePos.isClicking ? 'clicking' : ''}`}
         style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
       >
@@ -60,6 +63,8 @@ export default function App() {
       <ContactForm />
 
       <Footer />
+
+      <ScrollToTopButton />
 
       {lightbox.isOpen && (
         <ThumbnailLightbox

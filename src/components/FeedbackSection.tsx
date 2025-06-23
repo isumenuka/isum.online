@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { Star, MessageCircle, Youtube, ExternalLink } from 'lucide-react';
 import { YOUTUBE_API_KEY } from '../config';
 import { feedbacks } from '../data/feedbacks';
 import type { Feedback } from '../types';
 
 export function FeedbackSection() {
+  const sectionRef = useScrollAnimation('animate-slideRight');
   const [feedbacksWithProfiles, setFeedbacksWithProfiles] = useState<Feedback[]>(feedbacks);
 
   useEffect(() => {
@@ -42,7 +44,7 @@ export function FeedbackSection() {
   };
 
   return (
-    <div className="w-full py-16 relative overflow-hidden">
+    <div ref={sectionRef} className="w-full py-16 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 mb-4">

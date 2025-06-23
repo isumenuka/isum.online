@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTilt } from '../hooks/useTilt';
 import { VideoItem } from '../types';
 
 interface VideoCardProps {
@@ -7,8 +8,10 @@ interface VideoCardProps {
 }
 
 export function VideoCard({ video, onClick }: VideoCardProps) {
+  const tiltRef = useTilt();
   return (
     <button
+      ref={tiltRef}
       onClick={onClick}
       className="w-[300px] glass-card rounded-xl overflow-hidden group mx-2"
     >

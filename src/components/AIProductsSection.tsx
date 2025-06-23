@@ -1,4 +1,6 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useParallax } from '../hooks/useParallax';
 import { ExternalLink, AlertTriangle } from 'lucide-react';
 
 interface AIProduct {
@@ -36,8 +38,12 @@ const aiProducts: AIProduct[] = [
 ];
 
 export function AIProductsSection() {
+  const sectionRef = useScrollAnimation('animate-rotateIn');
+  const bgRef = useParallax(0.2);
+
   return (
-    <div className="w-full py-16 relative overflow-hidden">
+    <div ref={sectionRef} className="w-full py-16 relative overflow-hidden">
+      <div ref={bgRef} className="absolute inset-0 bg-gradient-to-br from-purple-900/30 to-pink-900/30 -z-10" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 mb-4">

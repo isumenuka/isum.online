@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { useRipple } from '../hooks/useRipple';
 import { Mail, Send } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export function ContactForm() {
+  const sectionRef = useScrollAnimation('animate-zoomIn');
+  const rippleRef = useRipple();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -47,7 +51,7 @@ ${formData.message}
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+    <div ref={sectionRef} className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 mb-4">
           Get in Touch
@@ -136,8 +140,9 @@ ${formData.message}
 
             <div className="flex justify-end">
               <button
+                ref={rippleRef}
                 type="submit"
-                className="group relative px-6 py-3 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500/50 overflow-hidden"
+                className="group relative px-6 py-3 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500/50 overflow-hidden ripple-container"
                 style={{
                   background: 'linear-gradient(135deg, #9333EA, #EC4899)',
                   boxShadow: '0 0 20px rgba(236, 72, 153, 0.5)'
