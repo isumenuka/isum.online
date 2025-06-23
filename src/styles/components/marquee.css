@@ -7,11 +7,14 @@
   .marquee-track {
     @apply inline-flex;
     width: fit-content;
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .marquee-content {
     @apply inline-flex;
     width: fit-content;
+    will-change: transform;
   }
 
   .marquee-left .marquee-track {
