@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Mail, Send } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export function ContactForm() {
+  const sectionRef = useScrollAnimation('animate-zoomIn');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -47,7 +49,7 @@ ${formData.message}
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+    <div ref={sectionRef} className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
       <div className="text-center mb-12">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 mb-4">
           Get in Touch

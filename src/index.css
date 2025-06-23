@@ -101,6 +101,39 @@
     to { opacity: 1; }
   }
 
+  @keyframes slideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
   @keyframes pulse {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.05); opacity: 0.8; }
@@ -305,5 +338,17 @@
 
   .animate-fadeIn {
     animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slideLeft {
+    animation: slideLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-slideRight {
+    animation: slideRight 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .animate-zoomIn {
+    animation: zoomIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 }

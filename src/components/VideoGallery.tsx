@@ -1,4 +1,5 @@
 import React from 'react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { VideoItem } from '../types';
 import { VideoCard } from './VideoCard';
 
@@ -8,6 +9,7 @@ interface VideoGalleryProps {
 }
 
 export function VideoGallery({ videos, onVideoClick }: VideoGalleryProps) {
+  const sectionRef = useScrollAnimation('animate-fadeIn');
   // Take only the first 36 videos (6 rows × 6 videos per row)
   const limitedVideos = videos.slice(0, 36);
   
@@ -20,7 +22,7 @@ export function VideoGallery({ videos, onVideoClick }: VideoGalleryProps) {
   }, [] as VideoItem[][]);
 
   return (
-    <main className="flex-grow w-full py-24">
+    <main ref={sectionRef} className="flex-grow w-full py-24">
       {chunkedVideos.map((row, rowIndex) => (
         <div key={rowIndex} className={`marquee-row ${rowIndex % 2 === 0 ? 'marquee-left' : 'marquee-right'}`}>
           <div className="marquee-track">
