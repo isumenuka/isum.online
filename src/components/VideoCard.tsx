@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { VideoItem } from '../types';
 
 interface VideoCardProps {
@@ -7,10 +7,33 @@ interface VideoCardProps {
 }
 
 export function VideoCard({ video, onClick }: VideoCardProps) {
+  const cardRef = useRef<HTMLButtonElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const card = cardRef.current;
+    if (!card) return;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const rotateX = ((y - rect.height / 2) / rect.height) * 10;
+    const rotateY = ((x - rect.width / 2) / rect.width) * -10;
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  };
+
+  const resetTilt = () => {
+    const card = cardRef.current;
+    if (card) card.style.transform = 'rotateX(0) rotateY(0)';
+  };
+
   return (
     <button
+      ref={cardRef}
       onClick={onClick}
-      className="w-[300px] glass-card rounded-xl overflow-hidden group mx-2"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={resetTilt}
+      onMouseDown={() => cardRef.current?.classList.add('pressed')}
+      onMouseUp={() => cardRef.current?.classList.remove('pressed')}
+      className="tilt-card w-[300px] glass-card rounded-xl overflow-hidden group mx-2"
     >
       <div className="aspect-video overflow-hidden relative">
         {/* Shine effect overlay */}

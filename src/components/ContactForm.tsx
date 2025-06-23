@@ -11,6 +11,20 @@ export function ContactForm() {
     message: ''
   });
 
+  const createRipple = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const button = e.currentTarget;
+    const rect = button.getBoundingClientRect();
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+    const circle = document.createElement('span');
+    circle.className = 'ripple';
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.clientX - rect.left - radius}px`;
+    circle.style.top = `${e.clientY - rect.top - radius}px`;
+    button.appendChild(circle);
+    circle.addEventListener('animationend', () => circle.remove());
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -139,7 +153,8 @@ ${formData.message}
             <div className="flex justify-end">
               <button
                 type="submit"
-                className="group relative px-6 py-3 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500/50 overflow-hidden"
+                onClick={createRipple}
+                className="ripple-container group relative px-6 py-3 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500/50 overflow-hidden"
                 style={{
                   background: 'linear-gradient(135deg, #9333EA, #EC4899)',
                   boxShadow: '0 0 20px rgba(236, 72, 153, 0.5)'
