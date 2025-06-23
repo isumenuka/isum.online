@@ -1,12 +1,14 @@
 import React from 'react';
-import { Heart, Github, RefreshCw } from 'lucide-react';
+import { Heart, Github, RefreshCw, Sun, Moon } from 'lucide-react';
 
 interface HeaderProps {
   onRefresh?: () => void;
   lastSynced?: Date | null;
+  onToggleTheme?: () => void;
+  theme?: 'light' | 'dark';
 }
 
-export function Header({ onRefresh, lastSynced }: HeaderProps) {
+export function Header({ onRefresh, lastSynced, onToggleTheme, theme }: HeaderProps) {
   return (
     <header className="glass-header py-6">
       <div className="max-w-[2000px] mx-auto px-8">
@@ -48,6 +50,20 @@ export function Header({ onRefresh, lastSynced }: HeaderProps) {
               <div className="absolute -inset-2 bg-gradient-to-r from-red-600 to-pink-600 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200"></div>
               <Heart className="text-white relative" size={24} />
             </div>
+            {onToggleTheme && (
+              <button
+                onClick={onToggleTheme}
+                className="relative group cursor-pointer"
+                title="Toggle theme"
+              >
+                <div className="absolute -inset-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full opacity-75 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200"></div>
+                {theme === 'light' ? (
+                  <Sun className="text-white relative" size={24} />
+                ) : (
+                  <Moon className="text-white relative" size={24} />
+                )}
+              </button>
+            )}
           </div>
         </div>
       </div>

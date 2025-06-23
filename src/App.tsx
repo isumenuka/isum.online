@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { VideoGallery } from './components/VideoGallery';
@@ -12,13 +12,16 @@ import { AIProductsSection } from './components/AIProductsSection';
 import { ScrollProgress } from './components/ScrollProgress';
 import { ScrollToTopButton } from './components/ScrollToTopButton';
 import { useMousePosition } from './hooks/useMousePosition';
+import { useTheme } from './hooks/useTheme';
 import { useVideos } from './hooks/useVideos';
 import { LightboxState } from './types';
 
 export default function App() {
   const mousePos = useMousePosition();
+  const { theme, toggleTheme } = useTheme();
   const { videos, loading, error } = useVideos();
   const [lightbox, setLightbox] = useState<LightboxState>({ isOpen: false, videoId: null });
+  const trailRefs = useRef<HTMLDivElement[]>([]);
 
   // Enable custom cursor for desktop devices
   useEffect(() => {
@@ -30,6 +33,16 @@ export default function App() {
       document.body.classList.remove('custom-cursor-enabled');
     };
   }, []);
+
+  // Update trailing cursor dots
+  useEffect(() => {
+    trailRefs.current.forEach((dot, i) => {
+      if (!dot) return;
+      const offset = i + 1;
+      dot.style.transitionDuration = `${offset * 0.1}s`;
+      dot.style.transform = `translate3d(${mousePos.x}px, ${mousePos.y}px, 0)`;
+    });
+  }, [mousePos]);
 
   if (loading) return <LoadingState />;
   if (error) return <ErrorState message={error} />;
@@ -44,8 +57,17 @@ export default function App() {
         <div className="cursor-dot" />
         <div className="cursor-ring" />
       </div>
+      {Array.from({ length: 3 }).map((_, i) => (
+        <div
+          key={i}
+          ref={el => {
+            if (el) trailRefs.current[i] = el;
+          }}
+          className="cursor-trail-dot"
+        />
+      ))}
 
-      <Header />
+      <Header onToggleTheme={toggleTheme} theme={theme} />
       
       <VideoGallery 
         videos={videos}
