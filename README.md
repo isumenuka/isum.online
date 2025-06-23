@@ -38,7 +38,7 @@ This project is a Vite-powered React TypeScript starter, designed to provide a s
     ```
     VITE_SUPABASE_URL=<your_supabase_url>
     VITE_SUPABASE_ANON_KEY=<your_supabase_anon_key>
-    YOUTUBE_API_KEY=<your_youtube_api_key>
+    VITE_YOUTUBE_API_KEY=<your_youtube_api_key>
     ```
 
     Get your Supabase URL and anonymous key from your Supabase project settings. Get your YouTube API key from Google Cloud. When deploying to Netlify, add these variables in the Netlify dashboard so they are available during the build.
