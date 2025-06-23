@@ -1,3 +1,3 @@
-export const YOUTUBE_API_KEY = 'AIzaSyAn6rfVQMAeunFqgKUCwYlv1bxQ-x9WIJc';
+export const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY || '';
 export const CHANNEL_HANDLE = '@ezsummextra';
 export const CHANNEL_ID = 'UCtBcHvEpqnFmwMVNZLmKOJQ';
