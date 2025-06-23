@@ -33,11 +33,6 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  body.light {
-    @apply bg-white text-black;
-    --line-color: rgba(0, 0, 0, 0.1);
-    --cursor-color: #0000ff;
-  }
 
   body::before {
     content: '';

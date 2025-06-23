@@ -8,20 +8,12 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   }
 
-  body.light .glass-header {
-    @apply bg-white/60 border-black/10;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  }
 
   .glass-footer {
     @apply fixed bottom-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl border-t border-white/10;
     box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
   }
 
-  body.light .glass-footer {
-    @apply bg-white/60 border-black/10;
-    box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.1);
-  }
 
   .glass-card {
     @apply backdrop-blur-md bg-white/5 border border-white/10 shadow-xl;
@@ -39,7 +31,4 @@
                 0 8px 10px -6px rgba(255, 255, 255, 0.1);
   }
 
-  body.light .glass-card {
-    @apply bg-white/40 border-black/10;
-  }
 }
