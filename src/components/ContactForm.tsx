@@ -97,7 +97,7 @@ ${formData.message}
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300 hover:border-purple-500/50"
+                  className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-colors duration-300 ease-out hover:border-purple-500/50"
                   placeholder="Your name"
                 />
               </div>
@@ -112,7 +112,7 @@ ${formData.message}
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300 hover:border-purple-500/50"
+                  className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-colors duration-300 ease-out hover:border-purple-500/50"
                   placeholder="your@email.com"
                 />
               </div>
@@ -129,7 +129,7 @@ ${formData.message}
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300 hover:border-purple-500/50"
+                className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-colors duration-300 ease-out hover:border-purple-500/50"
                 placeholder="What's this about?"
               />
             </div>
@@ -145,7 +145,7 @@ ${formData.message}
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-all duration-300 hover:border-purple-500/50 resize-none"
+                className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-colors duration-300 ease-out hover:border-purple-500/50 resize-none"
                 placeholder="Your message here..."
               />
             </div>
@@ -154,7 +154,7 @@ ${formData.message}
               <button
                 type="submit"
                 onClick={createRipple}
-                className="ripple-container group relative px-6 py-3 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500/50 overflow-hidden"
+                className="ripple-container group relative px-6 py-3 rounded-lg font-medium text-white transition-transform duration-300 ease-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-pink-500/50 overflow-hidden"
                 style={{
                   background: 'linear-gradient(135deg, #9333EA, #EC4899)',
                   boxShadow: '0 0 20px rgba(236, 72, 153, 0.5)'

@@ -45,8 +45,8 @@ export function LoadingState() {
           {/* Progress Section */}
           <div className="space-y-4">
             <div className="h-1.5 bg-white/5 rounded-full overflow-hidden backdrop-blur-sm">
-              <div 
-                className="h-full rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 transition-all duration-300 ease-out animate-shimmer"
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 transition-[width] duration-300 ease-out animate-shimmer"
                 style={{ 
                   width: `${progress}%`,
                   backgroundSize: '200% 100%'

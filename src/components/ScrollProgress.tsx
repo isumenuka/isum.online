@@ -8,11 +8,11 @@ export function ScrollProgress() {
       const total = document.documentElement.scrollHeight - window.innerHeight;
       const scrolled = window.scrollY;
       const value = (scrolled / total) * 100;
-      setProgress(value);
+      requestAnimationFrame(() => setProgress(value));
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

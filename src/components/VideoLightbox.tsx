@@ -23,7 +23,7 @@ export function VideoLightbox({ videoId, onClose }: VideoLightboxProps) {
       <div className="relative w-full max-w-5xl mx-4">
         <button
           onClick={onClose}
-          className="absolute -top-12 right-0 glassmorphism p-2 rounded-full text-white hover:text-red-500 hover:scale-110 transition-all duration-300"
+          className="absolute -top-12 right-0 glassmorphism p-2 rounded-full text-white hover:text-red-500 hover:scale-110 transition-transform duration-300 ease-out"
           aria-label="Close video"
         >
           <X size={24} />

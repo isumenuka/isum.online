@@ -7,13 +7,18 @@ export function useParallax(speed = 0.3) {
     const el = ref.current;
     if (!el) return;
 
+    el.style.willChange = 'transform';
+
     const handleScroll = () => {
       const rect = el.getBoundingClientRect();
-      el.style.transform = `translateY(${rect.top * speed}px)`;
+      const translate = rect.top * speed;
+      requestAnimationFrame(() => {
+        el.style.transform = `translateY(${translate}px)`;
+      });
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [speed]);
 
