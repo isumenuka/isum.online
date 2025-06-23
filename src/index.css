@@ -351,4 +351,38 @@
   .animate-zoomIn {
     animation: zoomIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
+
+  /* 3D tilt card effect */
+  .tilt-card {
+    perspective: 1000px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
+  }
+
+  .tilt-card.pressed {
+    transform: scale(0.97);
+  }
+
+  /* Ripple effect for buttons */
+  .ripple-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background-color: rgba(255, 255, 255, 0.5);
+    animation: ripple 600ms linear;
+    pointer-events: none;
+  }
+
+  @keyframes ripple {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
 }
