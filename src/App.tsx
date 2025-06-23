@@ -12,13 +12,11 @@ import { AIProductsSection } from './components/AIProductsSection';
 import { ScrollProgress } from './components/ScrollProgress';
 import { ScrollToTopButton } from './components/ScrollToTopButton';
 import { useMousePosition } from './hooks/useMousePosition';
-import { useTheme } from './hooks/useTheme';
 import { useVideos } from './hooks/useVideos';
 import { LightboxState } from './types';
 
 export default function App() {
   const mousePos = useMousePosition();
-  const { theme, toggleTheme } = useTheme();
   const { videos, loading, error } = useVideos();
   const [lightbox, setLightbox] = useState<LightboxState>({ isOpen: false, videoId: null });
   const trailRefs = useRef<HTMLDivElement[]>([]);
@@ -67,7 +65,7 @@ export default function App() {
         />
       ))}
 
-      <Header onToggleTheme={toggleTheme} theme={theme} />
+      <Header />
       
       <VideoGallery 
         videos={videos}
