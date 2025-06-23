@@ -152,6 +152,17 @@
     100% { transform: translateX(0); }
   }
 
+@keyframes rowWave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes rowRock {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+}
+
   @keyframes cursorPulse {
     0% {
       transform: translate(-50%, -50%) scale(1);
@@ -252,6 +263,14 @@
 
   .marquee-right .marquee-track {
     animation: marqueeRight 80s linear infinite;
+  }
+
+  .row-wave {
+    animation: rowWave 6s ease-in-out infinite;
+  }
+
+  .row-rock {
+    animation: rowRock 5s ease-in-out infinite;
   }
 
   .marquee-left .marquee-track:hover,
@@ -387,10 +406,19 @@
     pointer-events: none;
   }
 
-  @keyframes ripple {
-    to {
-      transform: scale(4);
-      opacity: 0;
-    }
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(128, 0, 255, 0.4); }
+  to { box-shadow: 0 0 20px rgba(128, 0, 255, 0.8); }
+}
+
+  .glow-on-select {
+    animation: glow 1.5s ease-in-out infinite alternate;
   }
 }
