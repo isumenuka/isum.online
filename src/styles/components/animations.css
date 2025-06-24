@@ -11,8 +11,16 @@
     animation: fadeIn 0.3s ease-out forwards;
   }
 
+  .animate-shineOnce {
+    animation: shineOnce 1.2s ease-out forwards;
+  }
+
   .animate-shimmerReveal {
     animation: shimmerReveal 1.2s ease-out forwards;
+  }
+
+  .animate-mysteryReveal {
+    animation: mysteryReveal 0.6s ease-out forwards;
   }
 
   .animate-reveal {
