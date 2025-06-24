@@ -17,8 +17,8 @@ export function ThumbnailLightbox({ video, onClose }: ThumbnailLightboxProps) {
   }, [onClose]);
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-xl bg-black/50"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-xl bg-black/50 animate-fadeIn"
       onClick={onClose}
     >
       {/* Reveal animation container */}
