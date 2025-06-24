@@ -64,6 +64,12 @@
     100% { transform: translateX(200%) rotate(45deg); }
   }
 
+  /* Horizontal shine used after mystery reveal */
+  @keyframes shimmerSlide {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
+  }
+
   @keyframes mysteryReveal {
     0% {
       clip-path: circle(0% at 50% 50%);
@@ -350,6 +356,10 @@
 
   .animate-shimmerReveal {
     animation: shimmerReveal 1.2s ease-out forwards;
+  }
+
+  .animate-shimmerSlide {
+    animation: shimmerSlide 1.2s ease-out forwards;
   }
 
   .animate-mysteryReveal {
