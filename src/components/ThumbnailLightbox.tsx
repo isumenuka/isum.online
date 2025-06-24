@@ -45,7 +45,7 @@ export function ThumbnailLightbox({ video, onClose }: ThumbnailLightboxProps) {
         </div>
 
         {/* Image container with shine effect */}
-        <div className="relative overflow-hidden rounded-xl shadow-2xl">
+        <div className="relative overflow-hidden rounded-xl shadow-2xl animate-mysteryReveal">
           {/* Shine effect */}
           <div className="absolute inset-0 opacity-0 animate-shine">
             <div className="absolute inset-[-100%] bg-gradient-to-r from-transparent via-white/30 to-transparent rotate-45 translate-x-[-100%] animate-shimmerReveal" />
