@@ -337,6 +337,17 @@
     animation: fadeIn 0.3s ease-out forwards;
   }
 
+  @keyframes shineOnce {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .animate-shineOnce {
+    animation: shineOnce 1.2s ease-out forwards;
+  }
+
   .animate-shimmerReveal {
     animation: shimmerReveal 1.2s ease-out forwards;
   }
