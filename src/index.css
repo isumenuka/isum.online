@@ -64,6 +64,15 @@
     100% { transform: translateX(200%) rotate(45deg); }
   }
 
+  @keyframes mysteryReveal {
+    0% {
+      clip-path: circle(0% at 50% 50%);
+    }
+    100% {
+      clip-path: circle(150% at 50% 50%);
+    }
+  }
+
   @keyframes reveal {
     0% { 
       opacity: 0;
@@ -330,6 +339,10 @@
 
   .animate-shimmerReveal {
     animation: shimmerReveal 1.2s ease-out forwards;
+  }
+
+  .animate-mysteryReveal {
+    animation: mysteryReveal 0.6s ease-out forwards;
   }
 
   .animate-reveal {
