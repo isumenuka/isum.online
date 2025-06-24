@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Send } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { sanitizeInput } from '../utils/sanitizeInput';
 
 export function ContactForm() {
   const sectionRef = useScrollAnimation('animate-zoomIn');
@@ -27,16 +28,23 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
+    const sanitized = {
+      name: sanitizeInput(formData.name),
+      email: sanitizeInput(formData.email),
+      subject: sanitizeInput(formData.subject),
+      message: sanitizeInput(formData.message)
+    };
+
     const emailBody = `
-Name: ${formData.name}
-Email: ${formData.email}
+Name: ${sanitized.name}
+Email: ${sanitized.email}
 
 Message:
-${formData.message}
+${sanitized.message}
     `.trim();
 
-    const mailtoLink = `mailto:isumenuka@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:isumenuka@gmail.com?subject=${encodeURIComponent(sanitized.subject)}&body=${encodeURIComponent(emailBody)}`;
     
     const link = document.createElement('a');
     link.href = mailtoLink;
@@ -95,6 +103,7 @@ ${formData.message}
                   id="name"
                   name="name"
                   required
+                  autoComplete="off"
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-colors duration-300 ease-out hover:border-purple-500/50"
@@ -110,6 +119,7 @@ ${formData.message}
                   id="email"
                   name="email"
                   required
+                  autoComplete="off"
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-colors duration-300 ease-out hover:border-purple-500/50"
@@ -127,6 +137,7 @@ ${formData.message}
                 id="subject"
                 name="subject"
                 required
+                autoComplete="off"
                 value={formData.subject}
                 onChange={handleChange}
                 className="w-full px-4 py-3 bg-purple-900/10 border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-transparent text-white placeholder-white/30 transition-colors duration-300 ease-out hover:border-purple-500/50"
@@ -142,6 +153,7 @@ ${formData.message}
                 id="message"
                 name="message"
                 required
+                autoComplete="off"
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
