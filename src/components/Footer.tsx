@@ -20,25 +20,25 @@ export function Footer() {
     },
     {
       icon: <Youtube size={20} />,
-      href: "https://www.youtube.com/@esumextra",
+      href: "https://www.youtube.com/@esumaextra",
       label: "YouTube",
       color: "hover:text-[#ff0000]"
     },
     {
       icon: <Twitter size={20} />,
-      href: "https://x.com/ezsumm",
+      href: "https://x.com/itzesuma",
       label: "Twitter",
       color: "hover:text-[#1DA1F2]"
     },
     {
       icon: <Facebook size={20} />,
-      href: "https://www.facebook.com/ezsumm",
+      href: "https://www.facebook.com/itzesuma",
       label: "Facebook",
       color: "hover:text-[#4267B2]"
     },
     {
       icon: <Instagram size={20} />,
-      href: "https://www.instagram.com/ezsumm/",
+      href: "https://www.instagram.com/itzesuma/",
       label: "Instagram",
       color: "hover:text-[#E4405F]"
     },
