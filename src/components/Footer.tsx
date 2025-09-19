@@ -20,7 +20,7 @@ export function Footer() {
     },
     {
       icon: <Youtube size={20} />,
-      href: "https://www.youtube.com/@ezsummextra",
+      href: "https://www.youtube.com/@esumextra",
       label: "YouTube",
       color: "hover:text-[#ff0000]"
     },
